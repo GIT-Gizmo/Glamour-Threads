@@ -1,0 +1,93 @@
+.slideshow {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    border-top: .1rem solid color(primary);
+
+    @include response(xl) {
+        height: 70vh;
+    }
+
+    @include response(lg) {
+        height: 60vh;
+    }
+
+    @include response(md) {
+        height: 50vh;
+    }
+
+    &-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        animation: slideshow 20s linear infinite;
+
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+    }
+
+    &-content {
+        background-color: rgba(color(secondary), .9);
+        position: absolute;
+        bottom: 6rem;
+        left: 6rem;
+        right: 6rem;
+        max-width: 40rem;
+        padding: 5rem;
+
+        @include response(xl) {
+            padding: 2rem;        }
+
+        h2 {
+            font-size: size(xl) + 1.2rem;
+            color: color(primary);
+
+            @include response(sm) {
+                font-size: size(lg) + .5rem;
+            }
+        }
+
+        p {
+            margin: 1rem 0;
+            font-size: size(sm);
+        }
+    }
+}
+
+$animList: 1 0s, 2 4s, 3 8s, 4 12s, 5 16s;
+
+@each $item in $animList {
+    .slideshow-slide:nth-child(#{nth($item, 1)}) {
+        animation-delay: nth($item, 2);
+    }
+}
+
+@keyframes slideshow {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    2% {
+        visibility: visible;
+        opacity: 1;
+    }
+    18% {
+        visibility: visible;
+        opacity: 1;
+    }
+    20% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

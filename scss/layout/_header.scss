@@ -1,0 +1,9 @@
+.header {
+    grid-column: 1 / 11;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) repeat(7, minmax(min-content, 16rem)) minmax(10rem, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    grid-gap: 2rem;
+    z-index: 100;
+}

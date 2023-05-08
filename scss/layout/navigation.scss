@@ -1,0 +1,35 @@
+.first-nav {
+    grid-column: 7 / 10;
+    grid-row: 1 / 2;
+    @include navigation;
+
+    @include response(xl) {
+        grid-column: 6 / 10;
+    }
+
+    @include response(lg) {
+        grid-column: 5 / 10;
+    }
+
+    @include response(md) {
+        grid-column: 4 / 10;
+    }
+
+    @include response(sm) {
+        grid-column: 2 / 10;
+    }
+}
+
+.second-nav {
+    grid-column: 3 / 8;
+    grid-row: 3 / 4;
+    @include navigation;
+
+    @include response(lg) {
+        grid-column: 2 / 9;
+    }
+
+    @include response(md) {
+        grid-column: 1 / -1;
+    }
+}

@@ -1,0 +1,50 @@
+.dropdown-list {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f078';
+        font-weight: bold;
+    }
+
+    &:hover .dropdown {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: 3rem;
+    right: -2.8rem;
+    width: 10rem;
+    background-color: darken(color(tertiary), 5%);
+    @include navigation;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -1.5rem;
+        left: 7.3rem;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid darken(color(tertiary), 5%);
+        border-left: 15px solid transparent;
+    } 
+
+    &-item {
+        margin: .5rem 0;
+    }
+
+    &-link {
+        font-weight: 300;
+        font-size: size(xs);
+    }
+}

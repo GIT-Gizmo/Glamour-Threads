@@ -1,0 +1,84 @@
+@mixin navigation {
+    &-list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+
+    &-item {
+        list-style: none;
+    }
+
+    &-link {
+        color: color(primary);
+        text-decoration: none;
+        font-size: size(sm);
+        transition: .3s;
+
+        &:hover {
+            color: lighten(color(primary), 40%);
+        }
+    }
+}
+
+@mixin flexPosition($justCont:center, $alignIte:center) {
+    display: flex;
+    justify-content: $justCont;
+    align-items: $alignIte;
+}
+
+@mixin footerList {
+    &-heading {
+        font-size: size(xs);
+        color: color(primary);
+    }
+
+    &-item {
+        list-style: none;
+        margin: 1rem 0;
+    }
+
+    &-link {
+        font-size: size(xs);
+        text-decoration: none;
+        color: lighten(color(primary), 15%);
+        transition: color .2s;
+
+        &:hover {
+            color: lighten(color(primary), 35%);
+        }
+    }
+}
+
+@mixin response($breakPoint) {
+    @if($breakPoint == xl) {
+        @media(max-width:1200px) {
+            @content;
+        }
+    }
+
+    @if($breakPoint == lg) {
+        @media(max-width:1000px) {
+            @content;
+        }
+    }
+
+    @if($breakPoint == md) {
+        @media(max-width:760px) {
+            @content;
+        }
+    }
+
+    @if($breakPoint == sm) {
+        @media(max-width:500px) {
+            @content;
+        }
+    }
+
+    @if($breakPoint == xs) {
+        @media(max-width:320px) {
+            @content;
+        }
+    }
+}

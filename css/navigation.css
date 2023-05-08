@@ -1,0 +1,7 @@
+.first-nav {
+  grid-column: 7 / 10;
+  grid-row: 1 / 2; }
+
+.second-nav {
+  grid-column: 3 / 8;
+  grid-row: 3 / 4; }
